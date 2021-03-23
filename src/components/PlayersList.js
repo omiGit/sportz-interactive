@@ -9,10 +9,12 @@ class playerList extends React.Component {
      const {players} = this.props;
      let playerList = null;
     if(players.loader){
-        playerList = <h2>Loading...</h2>
+       playerList = <h2>Loading...</h2>
      }
-     else{
-         playerList =  _.map(players.data,(player,index)=><InfoPanel key={index} player={player}/>);
+     else if(players.data.length) {
+          playerList =  _.map(players.data,(player,index)=><InfoPanel key={index} player={player}/>);
+     }else{
+        playerList = <h2>Sorry, Data Not Found</h2>
      }
     return (
         <div className="player-list">
@@ -23,7 +25,6 @@ class playerList extends React.Component {
     )
  }   
  componentDidMount(){
-    console.log(this.props)
     this.props.dispatch({type:FETCH_PLAYERS});
 }
 }
@@ -31,7 +32,8 @@ class playerList extends React.Component {
 const mapStateToProps = (state,ownProps)=>{
     return {
         players: {
-            data: playerSelector(state.players.data,ownProps.filterValue)
+            data: playerSelector(state.players.data,ownProps.filterValue),
+            loader: state.players.loader
         }
     }
 }

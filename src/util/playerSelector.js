@@ -1,18 +1,13 @@
 import _ from 'lodash';
 export const playerSelector = (players,filterValue)=>{
-    console.log("fileterValue :",players,filterValue);
        return _.filter(players,player=>{
-           const lowerCaseFilterValue = _.toLower(filterValue);
-          
+        const lowerCaseFilterValue = _.toLower(_.trim(filterValue));
+        const {PFName, TName} = player;
         if(!lowerCaseFilterValue){
             return player;
         }else{
-
-            console.log((_.includes(_.toLower(player.PFName),lowerCaseFilterValue)) 
-            || (_.includes(_.toLower(player.TName),lowerCaseFilterValue)));
-              
-            return ((_.includes(_.toLower(player.PFName),lowerCaseFilterValue)) 
-            || (_.includes(_.toLower(player.TName),lowerCaseFilterValue)))
+            return ((_.includes(_.toLower(_.trim(PFName)),lowerCaseFilterValue)) 
+            || (_.includes(_.toLower(_.trim(TName)),lowerCaseFilterValue)))
         }
        });
         
