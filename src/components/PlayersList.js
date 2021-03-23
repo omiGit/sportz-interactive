@@ -7,15 +7,17 @@ import InfoPanel from './InfoPanel';
 class playerList extends React.Component {
  render(){
      const {players} = this.props;
+     let playerList = null;
     if(players.loader){
-        return <h2>Loading...</h2>
+        playerList = <h2>Loading...</h2>
      }
-     const playerList =  _.map(players.data,player=><InfoPanel player={player}/>);
+     else{
+         playerList =  _.map(players.data,(player,index)=><InfoPanel key={index} player={player}/>);
+     }
     return (
         <div className="player-list">
             {
-        playerList
-
+           playerList
             }
         </div>
     )
