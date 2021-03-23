@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -35,4 +35,51 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.player-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.player-info{
+  width:300px;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.player-info img{
+  width: 100%;
+}
+
+.player-info-disc{
+  padding: 0px 10px 10px;
+}
+.player-info--name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  padding-bottom: 10px;
+}
+ .player-info-section{
+   padding-bottom: 5px;
+ }
+.player-info--label { 
+  color: #b3b3b3;
+  padding: 5px 0px;
+  font-weight: bold;
+}
+.player-info--value {font-weight: 500;}
+.player-input-box{
+  width: 100%;
+  text-align: center;
+  padding: 40px;
+}
+
+.player-input-box input{
+  width: 60%;
+  height: 30px;  
+  padding-left: 15px;
+  font-size: 20px;
 }
