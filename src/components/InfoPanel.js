@@ -4,9 +4,8 @@ import _ from 'lodash';
 
 export default ({player})=>{
     const {PFName, TName, Value, UpComingMatchesList} = player;
-    const {VsCCode, CCode, MDate} = UpComingMatchesList;
+    const {VsCCode, CCode, MDate} = UpComingMatchesList[0];
     const nextMatchDate = moment(MDate).local().format("DD-MM-YYYY	h:mm:ss	a");
-    
     //importing all images
     const imageModules = require.context("../../public/images", false, /.*\.jpg$/);
     const images = {}
